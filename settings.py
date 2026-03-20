@@ -1,7 +1,7 @@
 from src.hello import HelloMessage, HelloOperation
 
 REMOTE_SETTINGS = {
-	"url": "http://localhost:80",
+	"url": "http://localhost:52773",
 	"username": "SuperUser",
 	"password": "SYS",
 	"namespace": "USER",
