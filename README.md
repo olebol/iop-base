@@ -29,7 +29,7 @@ docker compose up --build -d
 
 This builds the image from the local `Dockerfile`, starts IRIS Health, applies the CPF merge configuration, and initialises the `iop` interoperability framework inside the container.
 
-> The management portal is available at [http://localhost:25773/csp/sys/UtilHome.csp](http://localhost/csp/sys/UtilHome.csp)
+> The management portal is available at [http://localhost:52773/csp/sys/UtilHome.csp](http://localhost:52773/csp/sys/UtilHome.csp)
 > Default credentials: `SuperUser` / `SYS`
 
 ### 3. Explore available iop commands
@@ -49,7 +49,7 @@ The docs mention remote cli being available since version 3.6.0, yet the latest 
 The -R option and the IOP_SETTINGS environment variable as mentioned in the IOP docs seem to be broken, set the following environment variables. 
 
 ```
-IOP_URL=http://localhost:80
+IOP_URL=http://localhost:52773
 IOP_USERNAME=SuperUser
 IOP_PASSWORD=SYS
 ```
@@ -70,7 +70,7 @@ TypeError: '>' not supported between instances of 'str' and 'int'
 ```iop -e``` without having set the default production.
 
 ```
-requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:80/api/iop/export?namespace=USER&production=Not set
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http://:52773/api/iop/export?namespace=USER&production=Not set
 ```
 
 Set the default production with ```iop -d [production name]```.
