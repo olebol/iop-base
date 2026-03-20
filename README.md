@@ -29,7 +29,7 @@ docker compose up --build -d
 
 This builds the image from the local `Dockerfile`, starts IRIS Health, applies the CPF merge configuration, and initialises the `iop` interoperability framework inside the container.
 
-> The management portal is available at [http://localhost/csp/sys/UtilHome.csp](http://localhost/csp/sys/UtilHome.csp)
+> The management portal is available at [http://localhost:25773/csp/sys/UtilHome.csp](http://localhost/csp/sys/UtilHome.csp)
 > Default credentials: `SuperUser` / `SYS`
 
 ### 3. Explore available iop commands
