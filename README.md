@@ -1,6 +1,6 @@
 # IOP base
 
-A basic repository for starting new IOP projects, contains one python file and one settings.py with sample production. Suggestions are always welcome.
+A basic repository for starting new IOP ([project page](https://pypi.org/project/iris-pex-embedded-python/) projects, contains one python file and one settings.py with sample production. Suggestions are always welcome.
 
 ---
 
