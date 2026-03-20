@@ -1,0 +1,3 @@
+[Actions]
+ModifyService:Name=%Service_CallIn,Enabled=1,AutheEnabled=48
+ModifyUser:Name=SuperUser,ChangePassword=0
