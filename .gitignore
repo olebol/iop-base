@@ -1,0 +1,20 @@
+# MacOS
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+
+# IRIS key (never commit license keys)
+key/

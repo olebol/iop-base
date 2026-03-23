@@ -32,57 +32,15 @@ This builds the image from the local `Dockerfile`, starts IRIS Health, applies t
 > The management portal is available at [http://localhost:52773/csp/sys/UtilHome.csp](http://localhost:52773/csp/sys/UtilHome.csp)
 > Default credentials: `SuperUser` / `SYS`
 
-### 3. Explore available iop commands
+### 3. Migrate any changes to your production
 
 ```bash
-iop -h
+iop -m settings.py
 ```
 
-This prints the full help output for the `iop` CLI — use it to list, start, stop, and manage interoperability productions running inside IRIS.
+Fully remote CLI is still in the works and will be included in IOP release 3.6, until then, we can only migrate remotely. If you want access to the other commands, you can use a host mounted volume and set up docker exec commands to run iop commands in the container.
 
 Make sure to check out the [IOP documentation](https://grongierisc.github.io/interoperability-embedded-python) for more information and guidance.
-
-## Known issues
-The docs mention remote cli being available since version 3.6.0, yet the latest release is 3.5.5. Even though the functionality does seem to exist in this version, there is no way I'm able to get it to work. Hence I have set the version to be used to the pre-release version 3.5.6b10. This, as you can see, is still lower than version 3.6.0, yet seems to work regardless... The following issues are known, and might be a result of using the pre release version.
-
-### Remote CLI
-The -R option and the IOP_SETTINGS environment variable as mentioned in the IOP docs seem to be broken, set the following environment variables. 
-
-```
-IOP_URL=http://localhost:52773
-IOP_USERNAME=SuperUser
-IOP_PASSWORD=SYS
-```
-
-```iop -m settings.py``` still works, since it uses the settings defined in the settings file itself.
-
-### Starting the production
-```iop -s``` seems to start the production, but crashes nonetheless, regardless of any variables or remote settings.
-
-```
-"/iop/_remote.py", line 117, in start_production_with_log
-last_id = max(last_id, entry.get("id", 0))
-
-TypeError: '>' not supported between instances of 'str' and 'int'
-```
-
-### Export with no default production
-```iop -e``` without having set the default production.
-
-```
-requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http://:52773/api/iop/export?namespace=USER&production=Not set
-```
-
-Set the default production with ```iop -d [production name]```.
-
-### ```1: start.sh not found``` during docker build
-
-This is because windows is a nice operating system that converts line endings. Solution:
-
-``` bash
-git config core.autocrlf input
-git checkout -- scripts/start.sh
-```
 
 ---
 

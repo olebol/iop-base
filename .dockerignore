@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Except
+!merge.cpf
+!requirements.txt
+!settings.py
+!scripts/
+!src/**
